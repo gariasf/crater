@@ -139,8 +139,7 @@
                         {{$tax->name.' ('.$tax->percent.'%)'}}
                     </td>
                     <td class="py-2 border-0 item-cell total-table-attribute-value">
-                        {!! $invoice->taxes !!}
-                        {!! format_money_pdf($tax->amount, $invoice->customer->currency) !!}
+                        {!! format_money_pdf($invoice->sub_total * $tax->percent / 100, $invoice->customer->currency) !!}
                     </td>
                 </tr>
             @endforeach
